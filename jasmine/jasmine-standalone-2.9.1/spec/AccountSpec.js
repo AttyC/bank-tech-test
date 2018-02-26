@@ -19,9 +19,12 @@ describe('Account', function(){
     account.withdraw(10)
     expect(account.balance).toEqual(-10)
   });
-  it('statement stores date', function(){
+  it('statement stores balance', function(){
     account.deposit(5);
-    expect(account.transactions[0][1]).toEqual('Mon Feb 26 2018 16:01:25 GMT+0000 (GMT)');
+    expect(account.transactions[0]).toEqual(5);
   });
-
+  it('statement stores deposit as credit', function(){
+    account.deposit(5);
+    expect(account.transactions[2]).toEqual('Credit');
+  });
 });

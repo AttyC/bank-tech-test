@@ -2,20 +2,22 @@ function Account(){
   this.balance = 0;
   var date;
   this.transactions = [];
+  var state;
 }
 
 Account.prototype.deposit = function (amount) {
   this.balance += amount;
-  this.storeTransaction(this.balance);
+  state = 'Credit';
+  this.storeTransaction(this.balance, state);
 
 };
 Account.prototype.withdraw = function (amount) {
   this.balance -= amount;
-  return this.balance;
+    state = 'Debit';
+  this.storeTransaction(this.balance, state);
 };
 
-Account.prototype.storeTransaction = function (balance) {
+Account.prototype.storeTransaction = function (balance, state) {
   date = new Date();
-  this.transactions.push(balance, date);
-  return this.transactions;
+  this.transactions.push(balance, date, state);
 };
