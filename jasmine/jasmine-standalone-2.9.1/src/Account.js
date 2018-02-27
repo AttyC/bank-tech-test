@@ -9,11 +9,13 @@
   Account.prototype.deposit = function (amount) {
     this.balance += amount;
     this.isCredit = true;
-    this.transactionClass.storeTransaction(amount, this.isCredit, this.balance);
+    this.transactionClass.createTransaction(amount, this.isCredit, this.balance);
+    return this.balance;
   };
   Account.prototype.withdraw = function (amount) {
     this.balance -= amount;
-    this.transactionClass.storeTransaction(amount, this.isCredit, this.balance);
+    this.transactionClass.createTransaction(amount, this.isCredit, this.balance);
+    return this.balance;
   };
 
   exports.Account = Account;
