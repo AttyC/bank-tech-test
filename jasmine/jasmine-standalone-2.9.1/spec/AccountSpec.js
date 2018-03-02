@@ -1,3 +1,4 @@
+//understands its balance
 describe('Account', function(){
   var account;
 
@@ -17,8 +18,7 @@ describe('Account', function(){
       account = new Account();
     });
     it('balance is £10', function(){
-      account.deposit(10)
-      expect(account.balance).toEqual(10)
+      expect(account.deposit(10)).toEqual(10)
     });
   });
 
@@ -28,8 +28,7 @@ describe('Account', function(){
       account = new Account();
     });
     it('balance is -£10', function(){
-      account.withdraw(10)
-      expect(account.balance).toEqual(-10)
+      expect(account.withdraw(10)).toEqual(-10)
     });
   });
 });
