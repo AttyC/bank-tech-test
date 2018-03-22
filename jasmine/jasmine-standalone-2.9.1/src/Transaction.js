@@ -7,7 +7,7 @@
       debit: null,
       balance: 0
     };
-    // this.statementClass = new Statement();
+    this.statementClass = new Statement();
   }
 
   Transaction.prototype.createTransaction = function (amount, isCredit, balance) {
@@ -15,7 +15,7 @@
     this.transaction['date'] = this.transaction.date
     this.transaction['balance'] = balance;
     if (this.isCredit == true) {this.transaction['credit'] = amount; } else { this.transaction['debit'] = amount; }
-    // this.statementClass.updateStatement(this.transaction);
+    this.statementClass.updateStatement(this.transaction);
     return this.transaction
   };
   exports.Transaction = Transaction;
