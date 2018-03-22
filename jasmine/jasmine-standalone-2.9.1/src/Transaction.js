@@ -2,24 +2,22 @@
 
   function Transaction(){
     this.transaction = {
-      date: null,
+      date: '10/12/21',
       credit: null,
       debit: null,
       balance: 0
     };
+    // this.statementClass = new Statement();
   }
 
-  Transaction.prototype.storeTransaction = function (amount, isCredit, balance) {
-    this.transaction['date'] = new Date();
-    if (this.isCredit) {
-        this.transaction['credit'] = amount;
-    } else {
-        this.transaction['debit'] = amount;
-    }
+  Transaction.prototype.createTransaction = function (amount, isCredit, balance) {
+    this.isCredit = isCredit;
+    this.transaction['date'] = this.transaction.date
     this.transaction['balance'] = balance;
-    console.log(this.transaction);
-    return this.transaction;
+    if (this.isCredit == true) {this.transaction['credit'] = amount; } else { this.transaction['debit'] = amount; }
+    // this.statementClass.updateStatement(this.transaction);
+    return this.transaction
   };
   exports.Transaction = Transaction;
-  
+
 })(this)
